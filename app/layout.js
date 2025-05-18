@@ -16,11 +16,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <div className="grid grid-cols-8 lg:grid-cols-5 bg-secondary">
-          <div className="col-span-1 lg:col-span-1 bg-white sticky top-0 h-screen overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-5 bg-secondary">
+          <div className="col-span-1 md:col-span-1 bg-white md:sticky md:top-0 md:h-screen md:overflow-y-auto">
             <Sidebar />
           </div>
-          <div className="col-span-7 m-5 lg:col-span-4">{children}</div>
+          <div className="col-span-7 m-5 md:col-span-4">{children}</div>
         </div>
       </body>
     </html>

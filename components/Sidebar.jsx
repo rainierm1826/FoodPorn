@@ -16,7 +16,7 @@ const tinos = Tinos({
 
 const UserAvatar = () => {
   return (
-    <Avatar className="w-10 h-10 md:w-16 md:h-16 shadow-md">
+    <Avatar className="hidden md:block md:w-16 md:h-16 shadow-md">
       <AvatarImage src="/avatar.jpg" />
       <AvatarFallback>R</AvatarFallback>
     </Avatar>
@@ -26,25 +26,25 @@ const UserAvatar = () => {
 const NavItem = () => {
   const pathname = usePathname();
   return (
-    <div className="w-full">
+    <div className="w-full flex md:flex-col gap-5">
       {navItems.map((item) => (
         <Link href={item.link} key={item.link}>
           <Button
-            variant="outline"
+            variant="ghost"
             className={`
-              mb-5 cursor-pointer 
+              cursor-pointer 
               flex items-center 
               ${
                 pathname === item.link
-                  ? "bg-primary text-white hover:bg-primary/90 hover:text-white"
+                  ? "text-primary lg:bg-primary lg:text-white lg:hover:bg-primary/90"
                   : ""
               }
               w-12 md:w-full       
-              justify-center md:justify-start   
+              justify-center md:justify-center   
             `}
           >
-            <item.icon className="w-4 h-4" />
-            <p className="hidden lg:block ml-2">{item.label}</p>
+            <item.icon className="hidden md:block w-4 h-4" />
+            <p className="block ml-2">{item.label}</p>
           </Button>
         </Link>
       ))}
@@ -54,17 +54,24 @@ const NavItem = () => {
 
 const Sidebar = () => {
   return (
-    <div className="flex justify-center items-center m-5">
-      <div className="flex flex-col items-center">
-        <Logo />
-        <div className="mt-10 flex flex-col items-center justify-center">
+    <div className="flex justify-center items-start md:m-5">
+      <div className="flex justify-between items-center md:flex-col w-full p-5 md:p-0">
+        {/* Logo Section */}
+        <div>
+          <Logo />
+        </div>
+
+        {/* User Info Section */}
+        <div className="hidden lg:flex flex-col items-center justify-center mt-10">
           <UserAvatar />
-          <p className={`${tinos.className} hidden lg:block text-lg font-bold mt-5`}>
+          <p className={`${tinos.className} text-lg font-bold mt-5`}>
             Rainier Marasigan
           </p>
-          <p className={` text-xs font-light hidden lg:block`}>Master Chef</p>
+          <p className="text-xs font-light">Master Chef</p>
         </div>
-        <div className="mt-10 w-full">
+
+        {/* Navigation Items */}
+        <div className="mt-0 md:mt-10">
           <NavItem />
         </div>
       </div>

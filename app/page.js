@@ -6,7 +6,7 @@ const Home = async ({ searchParams }) => {
   const query = searchParams.query || "";
   const page = searchParams.page || 1;
 
-  console.log("Fetching page:", page); 
+  console.log("Fetching page:", page);
 
   const apiUrl = query
     ? `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=12&offset=${
@@ -19,7 +19,7 @@ const Home = async ({ searchParams }) => {
       "Content-Type": "application/json",
       "x-api-key": process.env.SPOONACULAR_API_KEY,
     },
-    cache: "no-store", // ✅ Prevents caching and forces fresh data
+    cache: "no-store"
   });
 
   const data = await response.json();
