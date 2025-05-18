@@ -6,7 +6,7 @@ const Home = async ({ searchParams }) => {
   const query = searchParams.query || "";
   const page = searchParams.page || 1;
 
-  console.log("Fetching page:", page); // Debugging: Check if the page is updating
+  console.log("Fetching page:", page); 
 
   const apiUrl = query
     ? `https://api.spoonacular.com/recipes/complexSearch?query=${query}&number=12&offset=${

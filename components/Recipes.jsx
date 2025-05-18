@@ -43,7 +43,7 @@ const Recipes = ({ recipes, query, page, totalResults }) => {
       </div>
 
       {/* Pagination Controls */}
-      <div className="flex justify-center items-center gap-3 mt-5">
+      <div className="flex justify-center items-center gap-3 mt-5 flex-wrap">
         {/* Previous Button */}
         {currentPage > 1 && (
           <Link
